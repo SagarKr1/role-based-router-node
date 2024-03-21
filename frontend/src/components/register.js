@@ -9,31 +9,30 @@ import { Typography } from '@mui/material';
 import Link from '@mui/material/Link';
 // import Typography from '@mui/material/Typography';
 
-export default function Login() {
+export default function Register() {
     return (
         <div style={{ padding: "100px 0 0 0" }}>
             <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "" }}>
                 <Card sx={{ bgcolor: "", width: { md: "550px", sm: "450px" } }}>
                     <CardContent sx={{ display: "flex", justifyContent: "center", bgcolor: "#008DDA" }}>
                         <Typography sx={{ fontSize: "30px" }}>
-                            Sign In
+                            Sign Up
                         </Typography>
                     </CardContent>
                     <CardContent sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-                        <TextField id="filled-basic" label="E-mail" variant="filled" />
-                        <TextField id="filled-basic" label="Password" variant="filled" />
-                        <Box sx={{ display: "flex", justifyContent: { sm: "space-between" }, flexDirection: { xs: "column", sm: "row" } }}>
+                        <TextField id="filled-basic" label="E-mail" variant="filled" required />
+                        <TextField id="filled-basic" label="Name" variant="filled" required />
+                        <TextField id="filled-basic" label="Phone Number" variant="filled" required />
+                        <TextField id="filled-basic" label="Password" variant="filled" required />
+                        <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                             <Typography>
-                                <Link href="#"> Forgot Password ?</Link>
-                            </Typography>
-                            <Typography>
-                                Create account <Link href="/signup">Signup</Link>
+                                <Link href="/">Sign In</Link>
                             </Typography>
                         </Box>
                     </CardContent>
                     <CardActions>
-                        <Link href="#">
-                            <Button sx={{ bgcolor: "#F5DD61" }}>Sign In</Button>
+                        <Link href="/">
+                            <Button sx={{ bgcolor: "#F5DD61" }}>Sign Up</Button>
                         </Link>
                     </CardActions>
                 </Card>
