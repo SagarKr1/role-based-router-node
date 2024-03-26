@@ -1,4 +1,6 @@
-export default async function userAuth() {
+import { jwtDecode } from "jwt-decode";
+
+export default async function UserAuth() {
     const token = await localStorage.getItem("token");
     if (token == null) {
         // toast.success("Token expire");
@@ -16,12 +18,8 @@ export default async function userAuth() {
                 email:""
             }
         } else {
-            console.log("decode ", decoded);
-            return {
-                role:decoded.role,
-                name:decoded.name,
-                email:decoded.email
-            }
+            // console.log("decode ", decoded);
+            return decoded
         }
     }
 }
