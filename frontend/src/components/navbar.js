@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
-import { Link } from 'react-router-dom';
+import Link from '@mui/material/Link';
 import UserAuth from './userAuth';
 import { useNavigate } from 'react-router-dom';
 import Circular from './circuler';
@@ -56,7 +56,7 @@ export default function Navbar() {
                         data.role === "user"? 
                         <></>
                         :
-                        <Link href="/user"><Button color="inherit">Users</Button></Link>
+                        <Link href="/user"><Button color="inherit" sx={{color:"white"}}>Users</Button></Link>
                     }
                     <Link href="/profile"><Button color="inherit"><Avatar alt="Remy Sharp" /></Button></Link>
                 </Toolbar>

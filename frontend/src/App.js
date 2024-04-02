@@ -1,19 +1,23 @@
-import React from "react";
-import {Route, Routes } from "react-router-dom";
-import Login from "./components/login";
-import Register from "./components/register";
+import { Routes, Route } from "react-router-dom";
 import Profile from "./components/profile";
+import User from "./components/user";
 
 function App() {
+  const auth = "user"
   return (
-    <div className="App">
+    <>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/signup" element={<Register />} />
-        <Route path="/profile" element={<Profile/>} />
-        <Route path="*" element={<div>Page not found</div>} />
+        {
+          auth === "admin" ? <>
+            <Route path="/" element={<Profile />} />
+            <Route path="user" element={<User />} />
+          </> : <>
+            <Route path="/" element={<Profile />} />
+          </>
+        }
+        <Route path="/*" element={<>Not correct</>} />
       </Routes>
-    </div>
+    </>
   );
 }
 
