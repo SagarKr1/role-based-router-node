@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import UserAuth from './userAuth';
 import { useNavigate } from 'react-router-dom';
 import Circular from './circuler';
-import Navbar from './navbar';
 import { Box } from '@mui/material';
 
 export default function Profile() {
@@ -25,7 +24,6 @@ export default function Profile() {
     }, [])
     return (
         <div>
-            <Navbar></Navbar>
             {
                 loader ?
                     <Box sx={{display:"flex",flexDirection:"column" ,gap:3}}>

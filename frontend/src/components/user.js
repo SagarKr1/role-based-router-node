@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from './navbar';
 import { Box, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -10,7 +9,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import DeleteIcon from '@mui/icons-material/Delete';
-import SwipeableEdgeDrawer from './adminCreateUser';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -50,7 +48,6 @@ export default function User() {
     }
     return (
         <div>
-            <Navbar />
             <Box>
                 <Box>
                 {/* <SwipeableEdgeDrawer/> */}
