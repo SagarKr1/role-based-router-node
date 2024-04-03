@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import TextField from '@mui/material/TextField';
@@ -17,9 +17,19 @@ export default function Login() {
 
     const navigate = useNavigate();
 
-    const [SignIn,setSingIn] =  React.useState({
-        "email":"",
-        "password":""
+    useEffect(() => {
+        function checkLogin() {
+            const token = localStorage.getItem("token");
+            if (token !== null) {
+                navigate('/profile')
+            }
+        }
+        checkLogin()
+    }, [navigate])
+
+    const [SignIn, setSingIn] = React.useState({
+        "email": "",
+        "password": ""
     })
 
     const onchange = (e) => {
@@ -32,17 +42,17 @@ export default function Login() {
 
     const signin = async () => {
         console.log(SignIn);
-        if(SignIn.email!=="" && SignIn.password!==""){
-            const login = await axios.post("http://localhost:4000/login/post",SignIn);
+        if (SignIn.email !== "" && SignIn.password !== "") {
+            const login = await axios.post("http://localhost:4000/login/post", SignIn);
             console.log(login.data.body);
-            if(login.data.status===200){
-                await localStorage.setItem('token',login.data.body);
+            if (login.data.status === 200) {
+                await localStorage.setItem('token', login.data.body);
                 toast.success("Login successfully");
                 navigate('/profile');
-            }else{
+            } else {
                 toast.success("Login failed");
             }
-        }else{
+        } else {
             toast.warn("Field should not be empty");
         }
     }
@@ -70,7 +80,7 @@ export default function Login() {
                     </CardContent>
                     <CardActions>
                         {/* <Link href="#"> */}
-                            <Button onClick={()=>signin()} sx={{ bgcolor: "#F5DD61" }}>Sign In</Button>
+                        <Button onClick={() => signin()} sx={{ bgcolor: "#F5DD61" }}>Sign In</Button>
                         {/* </Link> */}
                     </CardActions>
                 </Card>

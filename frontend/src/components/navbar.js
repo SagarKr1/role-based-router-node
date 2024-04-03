@@ -1,19 +1,15 @@
-import React ,  { useEffect } from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
-import { NavLink, useNavigate } from 'react-router-dom';
-import UserAuth from './userAuth';
+import { NavLink } from 'react-router-dom';
+// import UserAuth from './userAuth';
 
 export default function Navbar(props) {
     console.log("role ",props.role);
-    const userData = async()=>{
-        return await UserAuth;
-    }
-    console.log("UserData = ",userData);
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
